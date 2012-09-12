@@ -6,7 +6,6 @@ description			|RelativeNumberCurrentWindow-description|
 usage				|RelativeNumberCurrentWindow-usage|
 installation			|RelativeNumberCurrentWindow-installation|
 configuration			|RelativeNumberCurrentWindow-configuration|
-integration			|RelativeNumberCurrentWindow-integration|
 limitations			|RelativeNumberCurrentWindow-limitations|
 known problems			|RelativeNumberCurrentWindow-known-problems|
 todo				|RelativeNumberCurrentWindow-todo|
@@ -59,6 +58,19 @@ DEPENDENCIES			    *RelativeNumberCurrentWindow-dependencies*
 
 - Requires Vim 7.0 or higher.
 
+==============================================================================
+CONFIGURATION			   *RelativeNumberCurrentWindow-configuration*
+
+			*g:RelativeNumberCurrentWindow_SameNumberWidth*
+For the relative numbers, the necessary space is determined by the window
+height; for absolute numbers, it's the number of lines in the buffer. This
+discrepance can lead to changes in the width of the number column when
+switching from one setting to the other. Because this shifting of the buffer
+contents is visually distracting, the plugin sets up an autocmd that presets
+'numberwidth' to a high-enough value so that this doesn't happen. If you don't
+want this, set: >
+    let g:RelativeNumberCurrentWindow_SameNumberWidth = 0
+<
 ==============================================================================
 LIMITATIONS			     *RelativeNumberCurrentWindow-limitations*
 
