@@ -31,7 +31,9 @@ SEE ALSO								     *
   'cursorline' setting only for the current window.
 
 RELATED WORKS								     *
-(Alternatives from other authors, other approaches, references not used here.)
+
+- RelOps (vimscript #4212) switches to relative numbering only when in
+  operator-pending mode.
 
 ==============================================================================
 USAGE					   *RelativeNumberCurrentWindow-usage*
