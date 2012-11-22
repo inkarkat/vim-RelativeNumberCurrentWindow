@@ -8,6 +8,10 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
+"	002	06-Sep-2012	Add autocmd to adapt 'numberwidth' to the buffer
+"				size, so that the width of the number column
+"				doesn't change when switching windows, because
+"				that is visually distracting.
 "	001	04-Sep-2012	file creation
 
 " Avoid installing twice or when in unsupported Vim version.
@@ -15,6 +19,13 @@ if exists('g:loaded_RelativeNumberCurrentWindow') || (v:version < 700) || ! exis
     finish
 endif
 let g:loaded_RelativeNumberCurrentWindow = 1
+
+"- configuration ---------------------------------------------------------------
+
+if ! exists('g:RelativeNumberCurrentWindow_SameNumberWidth')
+    let g:RelativeNumberCurrentWindow_SameNumberWidth = 1
+endif
+
 
 "- functions -------------------------------------------------------------------
 
@@ -42,6 +53,13 @@ augroup RelativeNumber
     autocmd!
     autocmd VimEnter,WinEnter,BufWinEnter * call <SID>RelativeNumberOnEnter()
     autocmd WinLeave                      * call <SID>RelativeNumberOnLeave()
+
+    if g:RelativeNumberCurrentWindow_SameNumberWidth
+	" For 'relativenumber', take the maximum possible number of 'lines', not
+	" the actual 'winheight', so that (frequently occurring) window
+	" resizings do not cause width changes, neither.
+	autocmd VimEnter,WinEnter,BufWinEnter * let &l:numberwidth = max([len(string(&lines)), len(string(line('$')))]) + 1
+    endif
 augroup END
 
 " vim: set ts=8 sts=4 sw=4 noexpandtab ff=unix fdm=syntax :
