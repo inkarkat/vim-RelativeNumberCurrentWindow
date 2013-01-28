@@ -34,6 +34,8 @@ RELATED WORKS								     *
 
 - RelOps (vimscript #4212) switches to relative numbering only when in
   operator-pending mode.
+- vim-numbertoggle (http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/)
+  turns off relative numbering in insert mode, or when the focus is lost.
 
 ==============================================================================
 USAGE					   *RelativeNumberCurrentWindow-usage*
@@ -72,6 +74,21 @@ contents is visually distracting, the plugin sets up an autocmd that presets
 'numberwidth' to a high-enough value so that this doesn't happen. If you don't
 want this, set: >
     let g:RelativeNumberCurrentWindow_SameNumberWidth = 0
+<
+				       *g:RelativeNumberCurrentWindow_OnFocus*
+The relative numbers don't help when Vim isn't the active application, but
+absoute numbers can be beneficial, because compiler or test output may refer
+to lines currently open in Vim. Therefore, relative numbers for the current
+window are switched to absolute when Vim loses the focus |FocusLost|. If you
+don't want this, set: >
+    let g:RelativeNumberCurrentWindow_OnFocus = 0
+<
+				      *g:RelativeNumberCurrentWindow_OnInsert*
+Likewise, in insert mode, relative numbers are useless, as you rarely do
+movements in that mode and cannot prepend a [count], anyway. Absolute numbers
+require less screen updates and provide better orientation, so relative
+numbers are switched to absolute when in insert mode. To disable this, set: >
+    let g:RelativeNumberCurrentWindow_OnInsert = 0
 <
 ==============================================================================
 LIMITATIONS			     *RelativeNumberCurrentWindow-limitations*
