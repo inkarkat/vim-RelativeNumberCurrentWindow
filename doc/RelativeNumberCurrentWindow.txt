@@ -36,6 +36,8 @@ RELATED WORKS								     *
   operator-pending mode.
 - vim-numbertoggle (http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/)
   turns off relative numbering in insert mode, or when the focus is lost.
+- numbers.vim (https://github.com/myusuf3/numbers.vim) will alternate between
+  relative numbering in normal mode and absolute in insert mode.
 
 ==============================================================================
 USAGE					   *RelativeNumberCurrentWindow-usage*
