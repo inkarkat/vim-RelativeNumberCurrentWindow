@@ -14,7 +14,7 @@ history				|RelativeNumberCurrentWindow-history|
 ==============================================================================
 DESCRIPTION			     *RelativeNumberCurrentWindow-description*
 
-The 'relativenumber' setting helps you use the |count| for even quicker
+The 'relativenumber' setting helps you use the [|count|] for even quicker
 navigation and manipulation, but it's only useful in the current window, where
 the cursor is. For all other windows, the absolute line numbers offer a better
 orientation (e.g. when you have the same buffer in splits above and below your
@@ -70,7 +70,7 @@ CONFIGURATION			   *RelativeNumberCurrentWindow-configuration*
 			*g:RelativeNumberCurrentWindow_SameNumberWidth*
 For the relative numbers, the necessary space is determined by the window
 height; for absolute numbers, it's the number of lines in the buffer. This
-discrepance can lead to changes in the width of the number column when
+discrepancy can lead to changes in the width of the number column when
 switching from one setting to the other. Because this shifting of the buffer
 contents is visually distracting, the plugin sets up an autocmd that presets
 'numberwidth' to a high-enough value so that this doesn't happen. If you don't
@@ -79,7 +79,7 @@ want this, set: >
 <
 				       *g:RelativeNumberCurrentWindow_OnFocus*
 The relative numbers don't help when Vim isn't the active application, but
-absoute numbers can be beneficial, because compiler or test output may refer
+absolute numbers can be beneficial, because compiler or test output may refer
 to lines currently open in Vim. Therefore, relative numbers for the current
 window are switched to absolute when Vim loses the focus |FocusLost|. If you
 don't want this, set: >
@@ -104,14 +104,14 @@ IDEAS					   *RelativeNumberCurrentWindow-ideas*
 ==============================================================================
 HISTORY					 *RelativeNumberCurrentWindow-history*
 
-GOAL
+1.00	04-Mar-2013
 First published version.
 
 0.01	04-Sep-2012
 Started development.
 
 ==============================================================================
-Copyright: (C) 2012 Ingo Karkat
+Copyright: (C) 2012-2013 Ingo Karkat
 The VIM LICENSE applies to this script; see |copyright|.
 
 Maintainer:	Ingo Karkat <ingo@karkat.de>
