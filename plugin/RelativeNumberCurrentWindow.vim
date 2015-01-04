@@ -2,12 +2,16 @@
 "
 " DEPENDENCIES:
 "
-" Copyright: (C) 2012 Ingo Karkat
+" Copyright: (C) 2012-2013 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
+"   1.00.004	04-Mar-2013	Fix completely losing line numbering on
+"				:EditNext; :setlocal number also resets the
+"				global 'relativenumber' value; we need to avoid
+"				that.
 "	003	23-Nov-2012	ENH: Turn off relative numbering in insert mode.
 "				ENH: Turn off relative numbering when the focus
 "				is lost.
@@ -45,13 +49,19 @@ function! s:LocalNumber()
     return (&l:relativenumber ? 2 : (&l:number ? 1 : 0))
 endfunction
 function! s:RelativeNumberOnEnter()
+"****D echomsg '****' bufnr('').'/'.winnr() s:LocalNumber() exists('w:relativenumber')
     if exists('w:relativenumber') && s:LocalNumber() == 1
 	setlocal relativenumber
     endif
 endfunction
 function! s:RelativeNumberOnLeave()
     if s:LocalNumber() == 2
-	setlocal number
+	" Switching locally to 'number' also resets the global 'relativenumber';
+	" we don't want this; on some :edits (especially through my :EditNext),
+	" the line numbering is completely lost due to this.
+	let l:global_relativenumber = &g:relativenumber
+	    setlocal number
+	let &g:relativenumber = l:global_relativenumber
 	let w:relativenumber = 1
     else
 	unlet! w:relativenumber
