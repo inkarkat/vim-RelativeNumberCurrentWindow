@@ -104,7 +104,7 @@ IDEAS					   *RelativeNumberCurrentWindow-ideas*
 ==============================================================================
 HISTORY					 *RelativeNumberCurrentWindow-history*
 
-1.10	RELEASEME
+1.10	09-Feb-2015
 - Plugin was broken by Vim 7.3.861, which fixed the resetting of 'rnu' when
   'nu' is set. Add implementation that omits the workaround.
 - Handle combination of 'nu' and 'rnu' that results in different current line
