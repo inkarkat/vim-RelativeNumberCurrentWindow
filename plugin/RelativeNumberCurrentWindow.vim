@@ -104,7 +104,11 @@ endfunction
 
 let s:onEnterEvents = 'VimEnter,WinEnter,BufWinEnter'
 if (v:version == 800 && has('patch1596') || v:version > 800)
-    let s:onEnterEvents .= ',TerminalWinOpen'
+    if has('nvim')
+	let s:onEnterEvents .= ',TermOpen'
+    else
+	let s:onEnterEvents .= ',TerminalWinOpen'
+    endif
 endif
 let s:onLeaveEvents = 'WinLeave'
 if g:RelativeNumberCurrentWindow_OnFocus
