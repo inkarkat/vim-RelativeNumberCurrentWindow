@@ -2,7 +2,7 @@
 "
 " DEPENDENCIES:
 "
-" Copyright: (C) 2012-2015 Ingo Karkat
+" Copyright: (C) 2012-2022 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
@@ -104,7 +104,7 @@ endfunction
 
 let s:onEnterEvents = 'VimEnter,WinEnter,BufWinEnter'
 if (v:version == 800 && has('patch1596') || v:version > 800)
-    let s:onEnterEvents .= ',TerminalWinOpen'
+    let s:onEnterEvents .= (has('nvim') ? ',TermOpen' : ',TerminalWinOpen')
 endif
 let s:onLeaveEvents = 'WinLeave'
 if g:RelativeNumberCurrentWindow_OnFocus

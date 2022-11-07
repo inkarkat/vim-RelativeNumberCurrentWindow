@@ -116,6 +116,10 @@ https://github.com/inkarkat/vim-RelativeNumberCurrentWindow/issues or email
 ==============================================================================
 HISTORY					 *RelativeNumberCurrentWindow-history*
 
+1.11	RELEASEME
+- Compatibility: Use TermOpen event in Neovim. Thanks for Gee19 for providing
+  a patch.
+
 1.10	09-Feb-2015
 - Plugin was broken by Vim 7.3.861, which fixed the resetting of 'rnu' when
   'nu' is set. Add implementation that omits the workaround.
