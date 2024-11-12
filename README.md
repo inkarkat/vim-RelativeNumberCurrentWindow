@@ -101,7 +101,7 @@ https://github.com/inkarkat/vim-RelativeNumberCurrentWindow/issues or email
 HISTORY
 ------------------------------------------------------------------------------
 
-##### 1.11    RELEASEME
+##### 1.11    12-Nov-2024
 - Compatibility: Use TermOpen event in Neovim. Thanks for Gee19 for providing
   a patch.
 
@@ -118,7 +118,7 @@ HISTORY
 - Started development.
 
 ------------------------------------------------------------------------------
-Copyright: (C) 2012-2022 Ingo Karkat -
+Copyright: (C) 2012-2024 Ingo Karkat -
 The [VIM LICENSE](http://vimdoc.sourceforge.net/htmldoc/uganda.html#license) applies to this plugin.
 
 Maintainer:     Ingo Karkat &lt;ingo@karkat.de&gt;
